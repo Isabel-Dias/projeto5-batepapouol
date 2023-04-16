@@ -80,6 +80,54 @@ body {
     display: flex;
     align-items: center;
 }
+.message {
+    background-color: #FFFFFF;
+    margin: 3px 0;
+    border-radius: 2px;
+    padding: 8px 4px;
+
+}
+.private-message {
+    background-color: #FFDEDE;
+    margin: 3px 0;
+    border-radius: 2px;
+    padding: 8px 4px;
+}
+.status-message {
+    background-color: #DCDCDC;
+    margin: 3px 0;
+    border-radius: 2px;
+    padding: 8px 4px;
+}
+.time {
+    color: #AAAAAA;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+.user {
+    color: #000000;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+
+    overflow-wrap: break-word;
+}
+.text {
+    color: #000000;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    overflow-wrap: break-word;
+
+}
 .bottom-bar > ion-icon {
     height: 26px;
     width: 26px;
