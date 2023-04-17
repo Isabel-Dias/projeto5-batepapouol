@@ -1,6 +1,6 @@
 axios.defaults.headers.common['Authorization'] = '1PfQuCKu9qqzu3zx78Eh1zAQ';
 
-const username = prompt('Por favor, digite seu nome de usuário:');
+let username = prompt('Por favor, digite seu nome de usuário:');
 
 checkName()
 setInterval(statusCheck, 5000);
@@ -21,7 +21,7 @@ function checkName() {
 
 function nameError() {
     alert('Este nome de usuário já está cadastrado, por favor escolha outro.'); 
-    const username = prompt('Por favor, digite seu nome de usuário:');
+    username = prompt('Por favor, digite seu nome de usuário:');
     checkName();
 }
 
@@ -91,6 +91,7 @@ function reloadPage() {
 //send message
 function sendNewMessage() {
     let messageText = document.querySelector('.message-box').value; 
+    document.querySelector('.message-box').value = ''
     const newMessagePromise = axios.post(
         'https://mock-api.driven.com.br/api/vm/uol/messages',
         {
