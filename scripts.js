@@ -1,9 +1,10 @@
-axios.defaults.headers.common['Authorization'] = 'xNNj8RExIeDgYQo2DDJXfbFR';
+axios.defaults.headers.common['Authorization'] = '';
 
 const username = prompt('Por favor, digite seu nome de usuário:');
 
 checkName();
 setInterval(statusCheck, 5000);
+setInterval(checkMessages, 3000);
 
 //check name validity
 function checkName() {
@@ -14,6 +15,7 @@ function checkName() {
 
 function nameError() {
     alert('Este nome de usuário já está cadastrado, por favor escolha outro.'); 
+    const username = prompt('Por favor, digite seu nome de usuário:');
     checkName();
 }
 
@@ -74,5 +76,25 @@ function sendMessage(message) {
     
 }
 
-  
+//reload page
+function reloadPage() {
+    window.location.reload()
+}
+
+//send message
+function sendNewMessage() {
+    let messageText = document.querySelector('.message-box').value; 
+    const newMessagePromise = axios.post(
+        'https://mock-api.driven.com.br/api/vm/uol/messages',
+        {
+            from: username,
+            to: "Todos",
+            text: messageText,
+            type: "message"
+        }
+    );
+
+    newMessagePromise.then(checkMessages);
+    newMessagePromise.catch(reloadPage);
+}
 

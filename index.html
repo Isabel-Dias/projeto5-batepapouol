@@ -22,10 +22,10 @@
         <div class="message-column">
             
         </div>
-        <form class="bottom-bar" onsubmit="send()">
+        <form class="bottom-bar" onsubmit="event.preventDefault()">
         
             <input class="message-box" type="text" placeholder="Escreva aqui...">
-            <ion-icon name="paper-plane-outline"></ion-icon>
+            <ion-icon onclick="sendNewMessage()" name="paper-plane-outline"></ion-icon>
         </form>
     
     </div>

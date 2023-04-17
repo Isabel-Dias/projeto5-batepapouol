@@ -67,6 +67,7 @@ body {
     
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 .message-box:focus {
     border: none;
@@ -131,4 +132,8 @@ body {
 .bottom-bar > ion-icon {
     height: 26px;
     width: 26px;
+    margin-right: 10px;
+}
+.bottom-bar > ion-icon:hover {
+    cursor: pointer;
 }
