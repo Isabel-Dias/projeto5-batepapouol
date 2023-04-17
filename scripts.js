@@ -1,4 +1,4 @@
-axios.defaults.headers.common['Authorization'] = '';
+axios.defaults.headers.common['Authorization'] = '1PfQuCKu9qqzu3zx78Eh1zAQ';
 
 const username = prompt('Por favor, digite seu nome de usuário:');
 
@@ -45,7 +45,7 @@ function sendMessage(message) {
         let messageData = message.data[i];
         if(messageData.type == 'status'){
             messageColumn.innerHTML += `
-                <div class="status-message"> 
+                <div data-test="message" class="status-message"> 
                     <span class="time">(${messageData.time})</span>
                     <span class="user">${messageData.from}</span>
                     <span class="text">${messageData.text}</span>
@@ -53,7 +53,7 @@ function sendMessage(message) {
             `;
         } else if(messageData.type == 'message'){
             messageColumn.innerHTML += `
-                <div class="message"> 
+                <div data-test="message" class="message"> 
                     <span class="time">(${messageData.time})</span>
                     <span class="user">${messageData.from}</span>
                     <span class="text">para</span>
@@ -63,7 +63,7 @@ function sendMessage(message) {
             `;
         } else if(messageData.type == 'private_message'){
             messageColumn.innerHTML += `
-                <div class="private-message"> 
+                <div data-test="message" class="private-message"> 
                     <span class="time">(${messageData.time})</span>
                     <span class="user">${messageData.from}</span>
                     <span class="text">para</span>
