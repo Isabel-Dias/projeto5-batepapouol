@@ -2,15 +2,21 @@ axios.defaults.headers.common['Authorization'] = '1PfQuCKu9qqzu3zx78Eh1zAQ';
 
 const username = prompt('Por favor, digite seu nome de usuário:');
 
-checkName();
+checkName()
 setInterval(statusCheck, 5000);
-setInterval(checkMessages, 3000);
+
+
+function messageInterval() {
+    checkMessages();
+    setInterval(checkMessages, 3000);   
+}
+    
 
 //check name validity
 function checkName() {
     const usernamePromise = axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', {name: username}); 
+    usernamePromise.then(messageInterval)
     usernamePromise.catch(nameError);
-    console.log(usernamePromise);   
 }
 
 function nameError() {
@@ -30,13 +36,14 @@ function checkMessages() {
     const messagesPromise = axios.get('https://mock-api.driven.com.br/api/vm/uol/messages');
     messagesPromise.then(sendMessage);
     messagesPromise.catch(printError);
+
+    
 }
 
 function printError(errorMessage) {
     console.log(errorMessage.response);
 }
    
-checkMessages();
 
 function sendMessage(message) {
     document.querySelector('.message-column').innerHTML = "";
